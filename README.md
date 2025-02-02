@@ -1,7 +1,7 @@
-# 🐙 streamlit_tree_select
+# 🐙 streamlit_tree_selector
 A simple and elegant checkbox tree for Streamlit. Build on [react-checkbox-tree](https://github.com/jakezatecky/react-checkbox-tree).
 
-This is a fork from the original repo (streamlit_tree_select) with extra feature like html parsing and black mode support 
+**This is a fork from the original repo (streamlit_tree_select) with extra feature like html parsing and black mode support**
 
 <p align="center">
   <img src="./img/example.gif" alt="animated" />
@@ -9,16 +9,16 @@ This is a fork from the original repo (streamlit_tree_select) with extra feature
 
 ### Installation
 
-streamlit-tree-select is distributed via. [PyPi](https://pypi.org/project/streamlit-tree-selector):
+streamlit-tree-selector is distributed via. [PyPi](https://pypi.org/project/streamlit-tree-selector):
 
 ```
-pip install streamlit-tree-select
+pip install streamlit-tree-selector
 ```
 
 
 
 ### Quickstart
-Using streamlit-tree-select is as simple as importing tree_select and passing a list of nodes.
+Using streamlit-tree-selector is as simple as importing tree_select and passing a list of nodes.
 ``` python
 import streamlit as st
 from streamlit_tree_select import tree_select
