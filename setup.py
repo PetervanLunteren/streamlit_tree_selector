@@ -1,8 +1,8 @@
 import setuptools
 
 setuptools.setup(
-    name="streamlit-tree-select",
-    version="0.0.6",
+    name="streamlit-tree-selector",
+    version="1.0.0",
     author="BlueGob",
     author_email="",
     description="A simple and elegant checkbox tree for Streamlit.",
