@@ -1,7 +1,7 @@
 # 🐙 streamlit_tree_selector
 A simple and elegant checkbox tree for Streamlit. Build on [react-checkbox-tree](https://github.com/jakezatecky/react-checkbox-tree).
 
-**This is a fork from the original repo (streamlit_tree_select) with extra feature like html parsing and black mode support**
+**This is a fork from the original repo (streamlit_tree_select) with extra features like html parsing, black mode support and color customization**
 
 <p align="center">
   <img src="./img/example.gif" alt="animated" />
@@ -76,6 +76,8 @@ The tree select can be customized using the following parameters:
 | `no_cascade`          | bool     | If True, toggling a parent node will not cascade its check state to its children.                                  | `False`     |
 | `only_leaf_checkboxes` | bool     | If True, checkboxes will only be shown for leaf nodes.                                                                 | `False`     |
 | `show_expand_all`      | bool     | If True buttons for expanding and collapsing all parent nodes will appear in the tree.                                | `False`     |
+| `half_check_color` | str |  If specified it will override the default color of half checked boxes| `""` |
+ `check_color` | str |  If specified it will override the default color of fully checked boxes | `""` |
 
 ### Returns
 tree_select returns a dictionary containing the keys checked node values as well as expanded node values.

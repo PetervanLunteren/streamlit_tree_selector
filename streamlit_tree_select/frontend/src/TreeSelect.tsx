@@ -40,6 +40,8 @@ class TreeSelect extends StreamlitComponentBase {
     const noCascade = this.props.args['no_cascade']
     const onlyLeafCheckboxes = this.props.args['only_leaf_checkboxes']
     const showExpandAll = this.props.args['show_expand_all']
+    const halfCheckColor = this.props.args["half_check_color"]
+    const checkColor = this.props.args["check_color"]
 
     if (!this.state.checked_changed) {
       this.state.checked = checked;
@@ -48,6 +50,36 @@ class TreeSelect extends StreamlitComponentBase {
     if (!this.state.expanded_changed){
       this.state.expanded = expanded;
     }
+
+    if(halfCheckColor){
+      const styleId = "dynamic-half-check-color";
+      let styleTag = document.getElementById(styleId) as HTMLStyleElement | null;
+      if (!styleTag) {
+        styleTag = document.createElement("style");
+        styleTag.id = styleId;
+        document.head.appendChild(styleTag);
+      }
+        styleTag.innerHTML = `
+        .rct-icons-fa4 .rct-icon-half-check::before {
+          color: ${halfCheckColor} !important;
+        }
+    `;
+    }
+    if(checkColor){
+      const styleId = "dynamic-check-color";
+      let styleTag = document.getElementById(styleId) as HTMLStyleElement | null;
+      if (!styleTag) {
+        styleTag = document.createElement("style");
+        styleTag.id = styleId;
+        document.head.appendChild(styleTag);
+      }
+        styleTag.innerHTML = `
+        .rct-icons-fa4 .rct-icon-check::before {
+          color: ${checkColor} !important;
+        }
+    `;
+    }
+    
     this.parse_label_html(nodes)
     return (<CheckboxTree
       icons={{

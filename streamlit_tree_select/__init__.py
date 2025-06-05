@@ -17,7 +17,7 @@ if not _RELEASE:
         # Pass `url` here to tell Streamlit that the component will be served
         # by the local dev server that you run via `npm run start`.
         # (This is useful while your component is in development.)
-        url="http://localhost:3001",
+        url="http://localhost:3000",
     )
 else:
     # When we're distributing a production version of the component, we'll
@@ -40,6 +40,8 @@ def tree_select(nodes: list[dict[str, str, None | list[Any]]],
                 no_cascade: bool = False,
                 only_leaf_checkboxes: bool = False,
                 show_expand_all: bool = False,
+                half_check_color: str = "",
+                check_color: str = "",
                 key: None | str = None):
     """Create a new instance of "streamlit_tree_selector".
 
@@ -108,6 +110,8 @@ def tree_select(nodes: list[dict[str, str, None | list[Any]]],
                                      only_leaf_checkboxes=only_leaf_checkboxes,
                                      show_expand_all=show_expand_all,
                                      key=key,
+                                     half_check_color = half_check_color,
+                                     check_color = check_color,
                                      default={'checked': checked, 'expanded': expanded})
 
     return tree_select_value
@@ -139,5 +143,5 @@ if not _RELEASE:
                       ],
                   }]
 
-    tree_return = tree_select(test_nodes, check_model='all', checked=['1', '3'], expanded=['1', '2'])
+    tree_return = tree_select(test_nodes, check_model='all', checked=['1', '3'], expanded=['1', '2'], half_check_color="", check_color="hotpink")
     st.write(tree_return)
