@@ -1,14 +1,14 @@
 import setuptools
 
 setuptools.setup(
-    name="streamlit-tree-selector",
-    version="1.1.0",
-    author="BlueGob",
+    name="st-checkbox-tree",
+    version="0.0.1",
+    author="peteraddax",
     author_email="",
-    description="A simple and elegant checkbox tree for Streamlit.",
+    description="Hierarchical multi-state tree check box selection",
     long_description="",
     long_description_content_type="text/plain",
-    url="https://github.com/BlueGob/streamlit_tree_select",
+    url="https://github.com/PetervanLunteren/streamlit_tree_selector",
     packages=setuptools.find_packages(),
     include_package_data=True,
     classifiers=[],
@@ -20,3 +20,4 @@ setuptools.setup(
         "streamlit >= 0.63",
     ],
 )
+
