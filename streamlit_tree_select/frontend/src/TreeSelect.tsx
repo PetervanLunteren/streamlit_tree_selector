@@ -42,6 +42,8 @@ class TreeSelect extends StreamlitComponentBase {
     const showExpandAll = this.props.args['show_expand_all']
     const halfCheckColor = this.props.args["half_check_color"]
     const checkColor = this.props.args["check_color"]
+    const showTreeLines = this.props.args["show_tree_lines"]
+    const treeLineColor = this.props.args["tree_line_color"]
 
     if (!this.state.checked_changed) {
       this.state.checked = checked;
@@ -78,6 +80,69 @@ class TreeSelect extends StreamlitComponentBase {
           color: ${checkColor} !important;
         }
     `;
+    }
+
+    if(showTreeLines){
+      const styleId = "dynamic-tree-lines";
+      let styleTag = document.getElementById(styleId) as HTMLStyleElement | null;
+      if (!styleTag) {
+        styleTag = document.createElement("style");
+        styleTag.id = styleId;
+        document.head.appendChild(styleTag);
+      }
+      styleTag.innerHTML = `
+        .rct-node {
+          position: relative;
+        }
+        
+        /* Vertical connecting lines - full height for non-last children */
+        .rct-node:not(:last-child)::before {
+          content: '';
+          position: absolute;
+          left: -12px;
+          top: 0;
+          bottom: -8px;
+          border-left: 1px solid ${treeLineColor};
+          width: 1px;
+        }
+        
+        /* Vertical connecting line for last child - only up to its horizontal line */
+        .rct-node:last-child::before {
+          content: '';
+          position: absolute;
+          left: -12px;
+          top: 0;
+          height: 16px;
+          border-left: 1px solid ${treeLineColor};
+          width: 1px;
+        }
+        
+        /* Horizontal connecting lines from vertical line to node content */
+        .rct-node::after {
+          content: '';
+          position: absolute;
+          left: -12px;
+          top: 16px;
+          width: 12px;
+          border-top: 1px solid ${treeLineColor};
+          height: 1px;
+        }
+        
+        /* Longer horizontal lines for leaf nodes (nodes without expand/collapse buttons) */
+        .rct-node:not(.rct-node-parent)::after {
+          width: 24px;
+        }
+        
+        /* No horizontal line for root level nodes */
+        .react-checkbox-tree > ol > .rct-node::after {
+          display: none;
+        }
+        
+        /* No vertical line for root level nodes */
+        .react-checkbox-tree > ol > .rct-node::before {
+          display: none;
+        }
+      `;
     }
     
     this.parse_label_html(nodes)

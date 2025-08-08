@@ -1,23 +1,27 @@
-# 🐙 streamlit_tree_selector
-A simple and elegant checkbox tree for Streamlit. Build on [react-checkbox-tree](https://github.com/jakezatecky/react-checkbox-tree).
+# 🌲 Streamlit Tree Selector
 
-**This is a fork from the original repo (streamlit_tree_select) with extra features like html parsing, black mode support and color customization**
+A simple and elegant checkbox tree component for Streamlit with **tree lines support**. Built on [react-checkbox-tree](https://github.com/jakezatecky/react-checkbox-tree).
+
+**Enhanced fork** of the original streamlit_tree_select with additional features:
+- ✅ **Tree lines** for visual hierarchy (NEW!)
+- ✅ HTML label parsing 
+- ✅ Dark mode support
+- ✅ Color customization
+- ✅ Multiple selection models
 
 <p align="center">
   <img src="./img/example.gif" alt="animated" />
 </p>
 
-### Installation
+## Installation
 
-streamlit-tree-selector is distributed via. [PyPi](https://pypi.org/project/streamlit-tree-selector):
-
-```
-pip install streamlit-tree-selector
+```bash
+pip install st-checkbox-tree
 ```
 
 
 
-### Quickstart
+## Quick Start
 Using streamlit-tree-selector is as simple as importing tree_select and passing a list of nodes.
 ``` python
 import streamlit as st
@@ -58,10 +62,21 @@ nodes = [
 
 return_select = tree_select(nodes)
 st.write(return_select)
-
 ```
-### Properties
-The tree select can be customized using the following parameters:
+
+## Tree Lines Feature (NEW!) 🌲
+
+Enable visual hierarchy with connecting lines:
+
+```python
+# Enable tree lines with default color
+tree_select(nodes, show_tree_lines=True)
+
+# Customize tree line color  
+tree_select(nodes, show_tree_lines=True, tree_line_color="blue")
+```
+
+### Parameters
 
 | Property             | Type     | Description                                                                                                            | Default     |
 | -------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | ----------- |
@@ -77,7 +92,9 @@ The tree select can be customized using the following parameters:
 | `only_leaf_checkboxes` | bool     | If True, checkboxes will only be shown for leaf nodes.                                                                 | `False`     |
 | `show_expand_all`      | bool     | If True buttons for expanding and collapsing all parent nodes will appear in the tree.                                | `False`     |
 | `half_check_color` | str |  If specified it will override the default color of half checked boxes| `""` |
- `check_color` | str |  If specified it will override the default color of fully checked boxes | `""` |
+| `check_color` | str |  If specified it will override the default color of fully checked boxes | `""` |
+| `show_tree_lines` | bool | If True, tree lines will be displayed to show hierarchical relationships. | `False` |
+| `tree_line_color` | str | Color of the tree lines when show_tree_lines is True. | `"#ccc"` |
 
 ### Returns
 tree_select returns a dictionary containing the keys checked node values as well as expanded node values.

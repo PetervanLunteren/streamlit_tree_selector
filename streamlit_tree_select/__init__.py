@@ -42,6 +42,8 @@ def tree_select(nodes: list[dict[str, str, None | list[Any]]],
                 show_expand_all: bool = False,
                 half_check_color: str = "",
                 check_color: str = "",
+                show_tree_lines: bool = False,
+                tree_line_color: str = "#ccc",
                 key: None | str = None):
     """Create a new instance of "streamlit_tree_selector".
 
@@ -85,6 +87,13 @@ def tree_select(nodes: list[dict[str, str, None | list[Any]]],
 
     show_expand_all: bool, default False
         If True buttons for expanding and collapsing all parent nodes will appear in the tree.
+
+    show_tree_lines: bool, default False
+        If True, tree lines will be displayed to show hierarchical relationships.
+
+    tree_line_color: str, default '#ccc'
+        Color of the tree lines when show_tree_lines is True.
+
     key
 
     Returns
@@ -112,6 +121,8 @@ def tree_select(nodes: list[dict[str, str, None | list[Any]]],
                                      key=key,
                                      half_check_color = half_check_color,
                                      check_color = check_color,
+                                     show_tree_lines=show_tree_lines,
+                                     tree_line_color=tree_line_color,
                                      default={'checked': checked, 'expanded': expanded})
 
     return tree_select_value
@@ -143,5 +154,5 @@ if not _RELEASE:
                       ],
                   }]
 
-    tree_return = tree_select(test_nodes, check_model='all', checked=['1', '3'], expanded=['1', '2'], half_check_color="", check_color="hotpink")
+    tree_return = tree_select(test_nodes, check_model='all', checked=['1', '3'], expanded=['1', '2'], half_check_color="", check_color="hotpink", show_tree_lines=True, tree_line_color="blue")
     st.write(tree_return)
