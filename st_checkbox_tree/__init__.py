@@ -9,11 +9,11 @@ import streamlit.components.v1 as components
 _RELEASE = True
 
 if not _RELEASE:
-    _tree_select = components.declare_component(
-        # We give the component a simple, descriptive name ("streamlit_tree_select"
+    _checkbox_tree = components.declare_component(
+        # We give the component a simple, descriptive name ("st_checkbox_tree"
         # does not fit this bill, so please choose something better for your
         # own component :)
-        "streamlit_tree_selector",
+        "st_checkbox_tree",
         # Pass `url` here to tell Streamlit that the component will be served
         # by the local dev server that you run via `npm run start`.
         # (This is useful while your component is in development.)
@@ -25,11 +25,11 @@ else:
     # build directory:
     parent_dir = os.path.dirname(os.path.abspath(__file__))
     build_dir = os.path.join(parent_dir, "frontend/build")
-    _tree_select = components.declare_component("streamlit_tree_selector", path=build_dir)
+    _checkbox_tree = components.declare_component("st_checkbox_tree", path=build_dir)
 
 
 # Create a wrapper function for the component.
-def tree_select(nodes: list[dict[str, str, None | list[Any]]],
+def checkbox_tree(nodes: list[dict[str, str, None | list[Any]]],
                 check_model: str = "all",
                 checked: None | list = None,
                 direction: str = 'ltr',
@@ -45,7 +45,7 @@ def tree_select(nodes: list[dict[str, str, None | list[Any]]],
                 show_tree_lines: bool = False,
                 tree_line_color: str = "#ccc",
                 key: None | str = None):
-    """Create a new instance of "streamlit_tree_selector".
+    """Create a new instance of "st_checkbox_tree".
 
     Parameters
     ----------
@@ -107,7 +107,7 @@ def tree_select(nodes: list[dict[str, str, None | list[Any]]],
     if expanded is None:
         expanded = []
 
-    tree_select_value = _tree_select(nodes=nodes,
+    checkbox_tree_value = _checkbox_tree(nodes=nodes,
                                      check_model=check_model,
                                      checked=checked,
                                      direction=direction,
@@ -125,12 +125,12 @@ def tree_select(nodes: list[dict[str, str, None | list[Any]]],
                                      tree_line_color=tree_line_color,
                                      default={'checked': checked, 'expanded': expanded})
 
-    return tree_select_value
+    return checkbox_tree_value
 
 
 # Add some test code to play with the component while it's in development.
 # During development, we can run this just as we would any other Streamlit
-# app: `$ streamlit run streamlit_tree_select/__init__.py`
+# app: `$ streamlit run st_checkbox_tree/__init__.py`
 if not _RELEASE:
     import streamlit as st
 
@@ -154,5 +154,5 @@ if not _RELEASE:
                       ],
                   }]
 
-    tree_return = tree_select(test_nodes, check_model='all', checked=['1', '3'], expanded=['1', '2'], half_check_color="", check_color="hotpink", show_tree_lines=True, tree_line_color="blue")
+    tree_return = checkbox_tree(test_nodes, check_model='all', checked=['1', '3'], expanded=['1', '2'], half_check_color="", check_color="hotpink", show_tree_lines=True, tree_line_color="blue")
     st.write(tree_return)

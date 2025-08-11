@@ -1,13 +1,6 @@
-# 🌲 Streamlit Tree Selector
+# 🌲 Streamlit Checkbox Tree
 
-A simple and elegant checkbox tree component for Streamlit with **tree lines support**. Built on [react-checkbox-tree](https://github.com/jakezatecky/react-checkbox-tree).
-
-**Enhanced fork** of the original streamlit_tree_select with additional features:
-- ✅ **Tree lines** for visual hierarchy (NEW!)
-- ✅ HTML label parsing 
-- ✅ Dark mode support
-- ✅ Color customization
-- ✅ Multiple selection models
+A simple checkbox tree component for Streamlit, forked from [streamlit_tree_selector](https://github.com/BlueGob/streamlit_tree_selector), built on [react-checkbox-tree](https://github.com/jakezatecky/react-checkbox-tree).
 
 <p align="center">
   <img src="./img/example.gif" alt="animated" />
@@ -19,16 +12,13 @@ A simple and elegant checkbox tree component for Streamlit with **tree lines sup
 pip install st-checkbox-tree
 ```
 
-
-
-## Quick Start
-Using streamlit-tree-selector is as simple as importing tree_select and passing a list of nodes.
+## Quick start
+Using st-checkbox-tree is as simple as importing checkbox_tree and passing a list of nodes.
 ``` python
 import streamlit as st
-from streamlit_tree_select import tree_select
+from st_checkbox_tree import checkbox_tree
 
-st.title("🐙 Streamlit-tree-select")
-st.subheader("A simple and elegant checkbox tree for Streamlit.")
+st.title("🌲 Streamlit Checkbox Tree")
 
 # Create nodes to display
 nodes = [
@@ -60,20 +50,8 @@ nodes = [
     },
 ]
 
-return_select = tree_select(nodes)
+return_select = checkbox_tree(nodes)
 st.write(return_select)
-```
-
-## Tree Lines Feature (NEW!) 🌲
-
-Enable visual hierarchy with connecting lines:
-
-```python
-# Enable tree lines with default color
-tree_select(nodes, show_tree_lines=True)
-
-# Customize tree line color  
-tree_select(nodes, show_tree_lines=True, tree_line_color="blue")
 ```
 
 ### Parameters
@@ -97,7 +75,7 @@ tree_select(nodes, show_tree_lines=True, tree_line_color="blue")
 | `tree_line_color` | str | Color of the tree lines when show_tree_lines is True. | `"#ccc"` |
 
 ### Returns
-tree_select returns a dictionary containing the keys checked node values as well as expanded node values.
+checkbox_tree returns a dictionary containing the keys checked node values as well as expanded node values.
 
 | Property             | Type     | Description                                                                                                            | Default     |
 | -------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | ----------- |

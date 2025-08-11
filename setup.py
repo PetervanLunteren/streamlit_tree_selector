@@ -8,10 +8,9 @@ setuptools.setup(
     version="1.0.0",
     author="peteraddax",
     author_email="",
-    description="A Streamlit component for hierarchical tree selection with tree lines support",
+    description="Enhanced Streamlit checkbox tree component with visual tree lines, HTML labels, and extensive customization options",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/PetervanLunteren/streamlit_tree_selector",
     packages=setuptools.find_packages(),
     include_package_data=True,
     classifiers=[
@@ -33,6 +32,6 @@ setuptools.setup(
     install_requires=[
         "streamlit >= 0.63",
     ],
-    keywords="streamlit, tree, selector, checkbox, hierarchical, component",
+    keywords="streamlit, checkbox, tree, hierarchical, component, tree-lines, visual-hierarchy",
 )
 

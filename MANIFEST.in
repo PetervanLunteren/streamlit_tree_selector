@@ -1,1 +1,1 @@
-recursive-include streamlit_tree_select/frontend/build *
+recursive-include st_checkbox_tree/frontend/build *

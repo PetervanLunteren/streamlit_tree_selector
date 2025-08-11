@@ -4,11 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "st-checkbox-tree"
-version = "1.0.0"
-authors = [
-    {name = "peteraddax"},
-]
-description = "A Streamlit component for hierarchical tree selection with tree lines support"
+version = "1.0.1"
+authors = ["Peter van Lunteren"]
+description = "Streamlit checkbox tree component"
 readme = "README.md"
 requires-python = ">=3.6"
 classifiers = [
@@ -29,15 +27,12 @@ classifiers = [
 dependencies = [
     "streamlit >= 0.63",
 ]
-keywords = ["streamlit", "tree", "selector", "checkbox", "hierarchical", "component"]
+keywords = ["streamlit", "checkbox", "tree", "hierarchical", "component", "tree-lines", "visual-hierarchy"]
 
-[project.urls]
-Homepage = "https://github.com/PetervanLunteren/streamlit_tree_selector"
-"Bug Tracker" = "https://github.com/PetervanLunteren/streamlit_tree_selector/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["streamlit_tree_select*"]
+include = ["st_checkbox_tree*"]
 
 [tool.setuptools.package-data]
-"streamlit_tree_select" = ["frontend/build/**/*"]
+"st_checkbox_tree" = ["frontend/build/**/*"]
