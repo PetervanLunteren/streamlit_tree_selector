@@ -5,7 +5,9 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "st-checkbox-tree"
 version = "1.0.1"
-authors = ["Peter van Lunteren"]
+authors = [
+    {name = "Peter van Lunteren"},
+]
 description = "Streamlit checkbox tree component"
 readme = "README.md"
 requires-python = ">=3.6"
